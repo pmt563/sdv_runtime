@@ -1,0 +1,1 @@
+docker pull ghcr.io/eclipse-kuksa/kuksa-databroker-cli:main

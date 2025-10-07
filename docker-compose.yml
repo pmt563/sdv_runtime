@@ -1,0 +1,32 @@
+services:
+  # KUKSA.val Databroker - Using a pre-built image
+  kuksa-databroker:
+    image: ghcr.io/eclipse-kuksa/kuksa-databroker:latest
+    container_name: kuksa-databroker
+    ports:
+      - "55555:55555"
+    # The --insecure flag is used for local development to disable TLS [1, 2]
+    command: --insecure
+
+  # Mosquitto MQTT Broker - Also using a pre-built image
+  mosquitto:
+    image: eclipse-mosquitto:latest
+    container_name: mosquitto
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      # Mounts your local config file into the container [3]
+      -./dependencies/mosquitto:/mosquitto/config
+
+  # Your Mock Service - Built from your local source code
+  mock-service:
+    build:
+      context:./src/backend # Assuming the Dockerfile for the mock service is here
+    container_name: mock-service
+    volumes:
+      -./dependencies/mock-service:/app/config
+    depends_on:
+      - kuksa-databroker
+
+  # --- Add other custom services (UI, etc.) here, using the 'build:' instruction ---

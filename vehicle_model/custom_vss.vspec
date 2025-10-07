@@ -1,0 +1,12 @@
+Vehicle.Cabin.Infotainment:
+  type: branch
+  description: "Infotainment subsystem."
+
+Vehicle.Cabin.Infotainment.HitAndRun:
+  type: branch
+  description: "Signals and controls for the Hit-and-Run demo."
+
+Vehicle.Cabin.Infotainment.HitAndRun.IsEnabled:
+  type: sensor
+  datatype: uint8
+  description: "Whether Hit-and-Run feature is enabled (0/1)."

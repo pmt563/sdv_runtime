@@ -1,0 +1,12 @@
+kuksa-databroker:
+    image: ghcr.io/eclipse-kuksa/kuksa-databroker:latest
+    container_name: kuksa-databroker
+    ports:
+      - "55555:55555"
+    command: --insecure
+    healthcheck:
+      test:
+      interval: 5s
+      timeout: 3s
+      retries: 5
+      start_period: 10s
