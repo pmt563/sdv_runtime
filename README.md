@@ -36,13 +36,12 @@ The complete dependency chain for the runtime will be as follows:
 
 ### Environment variables
 
-|-------------------|-----------------------------------------|----------|--------------------------------------|
 |   Variable Name   | Description                             | Required |                  Default Value       | 
 |-------------------|-----------------------------------------|----------|--------------------------------------|
 | `MOCK_ADDRESS`    | Address of mock service                 | ✅       | `0.0.0.0:50053`                      |
 | `VDB_ADDRESS`     | Address of Data Broker                  | ✅       | `127.0.0.1:55555`                    |
-| `MOCK_ADDRESS`    | Address of mock service                 | ✅       | `0.0.0.0:50053`                      |
-| `MOCK_ADDRESS`    | Address of mock service                 | ✅       | `0.0.0.0:50053`                      |
+| `VDB_PORT`        | Port of Data Broker                     | ✅       | `55555`                              |
+| `MOCK_PORT`       | Port of mock service                    | ✅       | `50053`                              |
 | `APP_ENV`         | Defines the running environment         | ❌       | `development`                        | 
 | `APP_ENV`         | Defines the running environment         | ✅       | `development`                        |
 | `APP_ENV`         | Defines the running environment         | ✅       | `development`                        |
