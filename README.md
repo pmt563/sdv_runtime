@@ -27,21 +27,36 @@ The complete dependency chain for the runtime will be as follows:
 
 #### Core Services
 
-| Service Name          | Container Image                                  | Host Ports  | Container Ports |
-|-----------------------|--------------------------------------------------|-------------|-----------------|
-| **kuksa-databroker**  | `ghcr.io/eclipse-kuksa/kuksa-databroker:latest`  | 55555       | 55555           |
-| **mosquitto**         | `eclipse-mosquitto:latest`                       | 1883, 9001  | 1883, 9001      |
-| **mock-provider**     | `sdv-runtime/mock-provider` *(custom build)*     | —           | —               |
-| **vss-ui**            | `sdv-runtime/vss-ui` *(custom build)*            | 8080        | 80              |
-| **kuksa-mqtt-bridge** | `sdv-runtime/kuksa-mqtt-bridge` *(custom build)* | —           | —               |
+| Service Name               | Container Image                                  | Host Ports  | Container Ports |
+|----------------------------|--------------------------------------------------|-------------|-----------------|
+| **kuksa-databroker**       | `ghcr.io/eclipse-kuksa/kuksa-databroker:latest`  | 55555       | 55555           |
+| **mosquitto**              | `eclipse-mosquitto:latest`                       | 1883, 9001  | 1883, 9001      |
+| **mock-provider**          |                  *(custom build)*                | —           | —               |
+| **vehicle-model-generator**|                  *(custom build)*                | 8080        | 80              |
 
-#### Volumes and Health Checks
- 
-| Service Name         | Volume Mounts                                                                | Health Check 
-|----------------------|------------------------------------------------------------------------------|
-| **kuksa-databroker** | —                                                                            | `/usr/local/bin/databroker-cli --server 127.0.0.1:55555 get Vehicle.Speed`                                            |
-| **mosquitto**        | `./mosquitto/config:/mosquitto/config`,<br>`./mosquitto/data:/mosquitto/data`,<br>`./mosquitto/log:/mosquitto/log`                                                                         | — |
-| **mock-provider**    | `./vss:/app/vss`                                                             | — |
-| **vss-ui**           | `./vss:/app/vss`                                                             | — |
-| **kuksa-mqtt-bridge**| —                                                                            | — |
+### Environment variables
+
+|-------------------|-----------------------------------------|----------|--------------------------------------|
+|   Variable Name   | Description                             | Required |                  Default Value       | 
+|-------------------|-----------------------------------------|----------|--------------------------------------|
+| `MOCK_ADDRESS`    | Address of mock service                 | ✅       | `0.0.0.0:50053`                      |
+| `VDB_ADDRESS`     | Address of Data Broker                  | ✅       | `127.0.0.1:55555`                    |
+| `MOCK_ADDRESS`    | Address of mock service                 | ✅       | `0.0.0.0:50053`                      |
+| `MOCK_ADDRESS`    | Address of mock service                 | ✅       | `0.0.0.0:50053`                      |
+| `APP_ENV`         | Defines the running environment         | ❌       | `development`                        | 
+| `APP_ENV`         | Defines the running environment         | ✅       | `development`                        |
+| `APP_ENV`         | Defines the running environment         | ✅       | `development`                        |
+| `APP_ENV`         | Defines the running environment         | ✅       | `development`                        |
+| `APP_ENV`         | Defines the running environment         | ✅       | `development`                        |
+| `APP_ENV`         | Defines the running environment         | ✅       | `development`                        |
+| `APP_ENV`         | Defines the running environment         | ✅       | `development`                        |
+| `APP_ENV`         | Defines the running environment         | ✅       | `development`                        |
+| `APP_ENV`         | Defines the running environment         | ✅       | `development`                        |
+| `APP_ENV`         | Defines the running environment         | ✅       | `development`                        |
+| `APP_ENV`         | Defines the running environment         | ✅       | `development`                        |
+| `APP_ENV`         | Defines the running environment         | ✅       | `development`                        |
+| `APP_ENV`         | Defines the running environment         | ✅       | `development`                        |
+| `APP_ENV`         | Defines the running environment         | ✅       | `development`                        |
+| `APP_ENV`         | Defines the running environment         | ✅       | `development`                        |
+| `APP_ENV`         | Defines the running environment         | ✅       | `development`                        |
 
